@@ -7,6 +7,7 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "clean": "hardhat clean",
+    "analyze:v1": "node scripts/analyze-v1.js",
     "check:deploy": "hardhat run scripts/check-deploy-config.js",
     "deploy:bsc-testnet": "hardhat run scripts/deploy-v2.js --network bscTestnet",
     "deploy:bsc": "hardhat run scripts/deploy-v2.js --network bsc"
