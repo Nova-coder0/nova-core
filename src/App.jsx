@@ -10,6 +10,7 @@ import {
   Github,
   LockKeyhole,
   Network,
+  Scale,
   RefreshCw,
   ShieldCheck,
   Wallet
@@ -75,6 +76,8 @@ const actions = [
   "Keep V2 as audited backup, not immediate replacement."
 ];
 
+const totalSupplyNumber = 1_000_000_000;
+
 function compactAddress(address) {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
@@ -92,11 +95,23 @@ function metricTone(value) {
   return "ok";
 }
 
+function formatNumber(value, digits = 6) {
+  if (!Number.isFinite(value)) return "0";
+  return new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: digits
+  }).format(value);
+}
+
 function App() {
   const [stats, setStats] = useState(initialStats);
   const [loading, setLoading] = useState(false);
   const [lastUpdated, setLastUpdated] = useState("Static baseline");
   const [error, setError] = useState("");
+  const [liquidityInputs, setLiquidityInputs] = useState({
+    novaAmount: "10000000",
+    bnbAmount: "1",
+    bnbUsd: "600"
+  });
 
   async function refreshStats() {
     setLoading(true);
@@ -151,6 +166,47 @@ function App() {
     if (ownerShare > 50) return "High concentration";
     return "Improving";
   }, [stats.ownerShare]);
+
+  const liquidityModel = useMemo(() => {
+    const novaAmount = Number(liquidityInputs.novaAmount);
+    const bnbAmount = Number(liquidityInputs.bnbAmount);
+    const bnbUsd = Number(liquidityInputs.bnbUsd);
+    const valid = novaAmount > 0 && bnbAmount > 0 && bnbUsd > 0;
+
+    if (!valid) {
+      return {
+        valid: false,
+        novaPerBnb: 0,
+        bnbPerNova: 0,
+        usdPerNova: 0,
+        impliedFdv: 0,
+        poolUsdDepth: 0,
+        twoXBuyBnb: 0
+      };
+    }
+
+    const bnbPerNova = bnbAmount / novaAmount;
+    const usdPerNova = bnbPerNova * bnbUsd;
+    const impliedFdv = usdPerNova * totalSupplyNumber;
+    const poolUsdDepth = bnbAmount * bnbUsd * 2;
+
+    return {
+      valid,
+      novaPerBnb: novaAmount / bnbAmount,
+      bnbPerNova,
+      usdPerNova,
+      impliedFdv,
+      poolUsdDepth,
+      twoXBuyBnb: bnbAmount * (Math.sqrt(2) - 1)
+    };
+  }, [liquidityInputs]);
+
+  function updateLiquidityInput(name, value) {
+    setLiquidityInputs((current) => ({
+      ...current,
+      [name]: value.replace(/[^0-9.]/g, "")
+    }));
+  }
 
   return (
     <main className="app-shell">
@@ -272,6 +328,53 @@ function App() {
         </div>
       </section>
 
+      <section className="liquidity-section" id="liquidity">
+        <div className="section-heading">
+          <Scale size={21} />
+          <h2>Liquidity Calculator</h2>
+        </div>
+        <div className="liquidity-layout">
+          <div className="liquidity-form">
+            <label>
+              <span>NOVA for pool</span>
+              <input
+                inputMode="decimal"
+                value={liquidityInputs.novaAmount}
+                onChange={(event) => updateLiquidityInput("novaAmount", event.target.value)}
+              />
+            </label>
+            <label>
+              <span>BNB for pool</span>
+              <input
+                inputMode="decimal"
+                value={liquidityInputs.bnbAmount}
+                onChange={(event) => updateLiquidityInput("bnbAmount", event.target.value)}
+              />
+            </label>
+            <label>
+              <span>BNB price USD</span>
+              <input
+                inputMode="decimal"
+                value={liquidityInputs.bnbUsd}
+                onChange={(event) => updateLiquidityInput("bnbUsd", event.target.value)}
+              />
+            </label>
+          </div>
+          <div className="liquidity-results">
+            <Result label="Start price" value={`${formatNumber(liquidityModel.bnbPerNova, 12)} BNB / NOVA`} />
+            <Result label="USD price" value={`$${formatNumber(liquidityModel.usdPerNova, 10)} / NOVA`} />
+            <Result label="NOVA per BNB" value={formatNumber(liquidityModel.novaPerBnb, 2)} />
+            <Result label="Implied FDV" value={`$${formatNumber(liquidityModel.impliedFdv, 2)}`} />
+            <Result label="Pool depth" value={`$${formatNumber(liquidityModel.poolUsdDepth, 2)}`} />
+            <Result label="Approx. BNB buy to 2x" value={`${formatNumber(liquidityModel.twoXBuyBnb, 4)} BNB`} />
+          </div>
+        </div>
+        <p className="liquidity-note">
+          This is an AMM model for planning, not a promise of price movement. Real trades include fees, slippage,
+          arbitrage, and liquidity risk. Use it to avoid creating a pool that is too thin or misleading.
+        </p>
+      </section>
+
       <section className="actions-section" id="actions">
         <div className="section-heading">
           <CheckCircle2 size={21} />
@@ -290,6 +393,15 @@ function App() {
         </div>
       </section>
     </main>
+  );
+}
+
+function Result({ label, value }) {
+  return (
+    <div className="result-cell">
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </div>
   );
 }
 
