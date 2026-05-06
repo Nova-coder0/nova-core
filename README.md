@@ -32,8 +32,12 @@ Prepared NOVA files:
 
 - `assets/brand/nova-logo.svg`
 - `public/nova-logo.png`
+- `public/nova-logo-64.png`
+- `public/nova.tokenlist.json`
 - `blockchains/smartchain/assets/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8/logo.png`
 - `blockchains/smartchain/assets/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8/info.json`
+
+The dashboard also includes a MetaMask import button using `wallet_watchAsset` with the official NOVA logo URL.
 
 ## V2 Direction
 
@@ -87,6 +91,7 @@ npm.cmd run build
 - [No-BNB growth plan](docs/NO_BNB_GROWTH_PLAN.md)
 - [Treasury policy](docs/TREASURY_POLICY.md)
 - [BNB Chain grant proposal draft](docs/BNB_CHAIN_GRANT_PROPOSAL.md)
+- [BscScan profile submission package](docs/BSC_SCAN_PROFILE_SUBMISSION.md)
 - [V2 architecture](docs/NOVA_V2_ARCHITECTURE.md)
 - [Tokenomics draft](docs/TOKENOMICS_DRAFT.md)
 - [Security policy](docs/SECURITY_POLICY.md)
