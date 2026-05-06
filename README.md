@@ -40,6 +40,7 @@ The token contract does not store a logo. Wallets and explorers usually read tok
 Prepared NOVA files:
 
 - `assets/brand/nova-logo.svg`
+- `assets/brand/nova-logo-source.png`
 - `public/nova-logo.png`
 - `public/nova-logo-64.png`
 - `public/nova.tokenlist.json`
