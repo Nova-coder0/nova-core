@@ -85,6 +85,18 @@ Analyze active V1 token:
 npm.cmd run analyze:v1
 ```
 
+Prepare the V1 allocation transfer plan:
+
+```powershell
+npm.cmd run allocate:v1
+```
+
+Execute the V1 allocation transfers from the owner wallet:
+
+```powershell
+npm.cmd run allocate:v1:execute
+```
+
 Run the dashboard locally:
 
 ```powershell
@@ -110,5 +122,6 @@ npm.cmd run build
 - [BscScan profile submission package](docs/BSC_SCAN_PROFILE_SUBMISSION.md)
 - [V2 architecture](docs/NOVA_V2_ARCHITECTURE.md)
 - [Tokenomics draft](docs/TOKENOMICS_DRAFT.md)
+- [V1 allocation execution](docs/NOVA_V1_ALLOCATION_EXECUTION.md)
 - [Security policy](docs/SECURITY_POLICY.md)
 - [Roadmap](docs/ROADMAP.md)
