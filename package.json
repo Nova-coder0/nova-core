@@ -11,6 +11,8 @@
     "test": "hardhat test",
     "clean": "hardhat clean",
     "analyze:v1": "node scripts/analyze-v1.js",
+    "allocate:v1": "node scripts/allocate-v1.js --dry-run",
+    "allocate:v1:execute": "node scripts/allocate-v1.js --execute",
     "check:deploy": "hardhat run scripts/check-deploy-config.js",
     "deploy:bsc-testnet": "hardhat run scripts/deploy-v2.js --network bscTestnet",
     "deploy:bsc": "hardhat run scripts/deploy-v2.js --network bsc"
