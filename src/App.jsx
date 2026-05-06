@@ -23,8 +23,11 @@ const TOKEN_ADDRESS = "0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8";
 const OWNER_ADDRESS = "0x73B13124271Dd38f62b1DA3297BeA735CBCDC942";
 const PAIR_ADDRESS = "0x1eCc98A87EA3E28B8b8Bc72a388223db8A1444Bb";
 const RPC_URL = "https://bsc-dataseed.binance.org/";
-const LOGO_URL = "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png";
-const TOKENLIST_URL = "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova.tokenlist.json";
+const SITE_URL = "https://nova-coder0.github.io/nova-core/";
+const PUBLIC_BASE_URL = import.meta.env.BASE_URL;
+const LOGO_PATH = `${PUBLIC_BASE_URL}nova-logo.png`;
+const LOGO_URL = `${SITE_URL}nova-logo.png`;
+const TOKENLIST_URL = import.meta.env.PROD ? `${SITE_URL}nova.tokenlist.json` : `${PUBLIC_BASE_URL}nova.tokenlist.json`;
 const BSC_CHAIN = {
   chainId: "0x38",
   chainName: "BNB Smart Chain",
@@ -292,7 +295,7 @@ function App() {
     <main className="app-shell">
       <header className="topbar">
         <a className="brand" href="https://github.com/Nova-coder0/nova-core" target="_blank" rel="noreferrer">
-          <img className="brand-mark brand-logo" src="/nova-logo.png" alt="NOVA logo" />
+          <img className="brand-mark brand-logo" src={LOGO_PATH} alt="NOVA logo" />
           <span>
             <strong>NOVA Control Center</strong>
             <small>BNB Smart Chain V1 transparency</small>
