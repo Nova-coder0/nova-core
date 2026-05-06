@@ -28,6 +28,7 @@ const PUBLIC_BASE_URL = import.meta.env.BASE_URL;
 const LOGO_PATH = `${PUBLIC_BASE_URL}nova-logo.png`;
 const LOGO_URL = `${SITE_URL}nova-logo.png`;
 const TOKENLIST_URL = import.meta.env.PROD ? `${SITE_URL}nova.tokenlist.json` : `${PUBLIC_BASE_URL}nova.tokenlist.json`;
+const TRUST_WALLET_PR_URL = "https://github.com/trustwallet/assets/pull/36579";
 const BSC_CHAIN = {
   chainId: "0x38",
   chainName: "BNB Smart Chain",
@@ -68,7 +69,8 @@ const initialStats = {
 };
 
 const checklist = [
-  { label: "Trust Wallet metadata", state: "done", detail: "info.json and logo.png are prepared for the BSC asset path." },
+  { label: "Public website", state: "done", detail: "GitHub Pages is live at nova-coder0.github.io/nova-core." },
+  { label: "Trust Wallet metadata", state: "done", detail: "info.json and logo.png are submitted in Trust Wallet PR #36579." },
   { label: "Contract source verification", state: "risk", detail: "V1 source is not publicly verified yet." },
   { label: "Owner and treasury policy", state: "done", detail: "Owner wallet and allocation rules are documented before treasury moves." },
   { label: "Liquidity plan", state: "next", detail: "Real liquidity and lock policy are required before promotion." },
@@ -87,8 +89,8 @@ const tokenomics = [
 ];
 
 const actions = [
-  "Submit the prepared logo and metadata through the Trust Wallet asset flow.",
-  "Create official website URL and add it to the Trust Wallet metadata.",
+  "Monitor Trust Wallet PR #36579 until checks and review complete.",
+  "Submit BscScan token profile after contract ownership and source-code requirements are satisfied.",
   "Publish owner and treasury policy before moving supply.",
   "Add real PancakeSwap liquidity only after tokenomics are public.",
   "Verify V1 source if the original source code is available.",
@@ -350,6 +352,9 @@ function App() {
           </button>
           <a className="secondary-button" href={TOKENLIST_URL} target="_blank" rel="noreferrer">
             Tokenlist JSON <ArrowUpRight size={15} />
+          </a>
+          <a className="secondary-button" href={TRUST_WALLET_PR_URL} target="_blank" rel="noreferrer">
+            Trust Wallet PR <ArrowUpRight size={15} />
           </a>
           {walletStatus && <p className="wallet-status">{walletStatus}</p>}
         </div>
