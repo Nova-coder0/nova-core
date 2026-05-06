@@ -13,12 +13,13 @@ This package prepares the information needed to request a BscScan token profile 
 
 ## Public Links
 
+- Website: `https://nova-coder0.github.io/nova-core/`
 - Project repository: `https://github.com/Nova-coder0/nova-core`
 - Documentation: `https://github.com/Nova-coder0/nova-core/tree/main/docs`
-- Logo PNG 256: `https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png`
-- Logo PNG 64: `https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo-64.png`
+- Logo PNG 256: `https://nova-coder0.github.io/nova-core/nova-logo.png`
+- Logo PNG 64: `https://nova-coder0.github.io/nova-core/nova-logo-64.png`
 - Logo SVG: `https://raw.githubusercontent.com/Nova-coder0/nova-core/main/assets/brand/nova-logo.svg`
-- Tokenlist: `https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova.tokenlist.json`
+- Tokenlist: `https://nova-coder0.github.io/nova-core/nova.tokenlist.json`
 
 ## Neutral Description
 
