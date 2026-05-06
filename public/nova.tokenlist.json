@@ -12,7 +12,7 @@
       "description": "Tokens with public documentation and monitoring assets."
     }
   },
-  "logoURI": "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png",
+  "logoURI": "https://nova-coder0.github.io/nova-core/nova-logo.png",
   "keywords": [
     "nova",
     "bnb",
@@ -26,12 +26,12 @@
       "name": "NovaToken",
       "symbol": "NOVA",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png",
+      "logoURI": "https://nova-coder0.github.io/nova-core/nova-logo.png",
       "tags": [
         "transparency"
       ],
       "extensions": {
-        "website": "https://github.com/Nova-coder0/nova-core",
+        "website": "https://nova-coder0.github.io/nova-core/",
         "explorer": "https://bscscan.com/token/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8",
         "pair": "https://pancakeswap.finance/info/v2/pairs/0x1eCc98A87EA3E28B8b8Bc72a388223db8A1444Bb"
       }
