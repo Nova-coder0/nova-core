@@ -3,6 +3,7 @@
 NOVA Core contains the technical foundation for NovaToken:
 
 - V1 due diligence.
+- V1 transparency dashboard.
 - V2 fixed-supply contract.
 - Tokenomics draft.
 - Security policy.
@@ -49,6 +50,18 @@ Analyze active V1 token:
 
 ```powershell
 npm.cmd run analyze:v1
+```
+
+Run the dashboard locally:
+
+```powershell
+npm.cmd run dev
+```
+
+Build the dashboard:
+
+```powershell
+npm.cmd run build
 ```
 
 ## Documents
