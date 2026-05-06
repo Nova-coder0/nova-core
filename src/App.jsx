@@ -51,11 +51,12 @@ const initialStats = {
 };
 
 const checklist = [
-  { label: "Trust Wallet metadata", state: "done", detail: "info.json is published for the BSC asset path." },
+  { label: "Trust Wallet metadata", state: "done", detail: "info.json and logo.png are prepared for the BSC asset path." },
   { label: "Contract source verification", state: "risk", detail: "V1 source is not publicly verified yet." },
-  { label: "Owner and treasury policy", state: "next", detail: "Owner wallet and allocation rules must be published." },
+  { label: "Owner and treasury policy", state: "done", detail: "Owner wallet and allocation rules are documented before treasury moves." },
   { label: "Liquidity plan", state: "next", detail: "Real liquidity and lock policy are required before promotion." },
   { label: "Monitoring", state: "done", detail: "V1 analysis script exists and this dashboard exposes the same facts." },
+  { label: "Grant readiness", state: "done", detail: "A BNB Chain grant proposal draft is ready for an open-source monitoring path." },
   { label: "Utility layer", state: "next", detail: "Build API credits, bot access, or dashboard services around NOVA." }
 ];
 
@@ -69,9 +70,9 @@ const tokenomics = [
 ];
 
 const actions = [
-  "Publish owner and treasury policy before moving supply.",
+  "Submit the prepared logo and metadata through the Trust Wallet asset flow.",
   "Create official website URL and add it to the Trust Wallet metadata.",
-  "Produce a clean 256x256 logo.png for wallet listings.",
+  "Publish owner and treasury policy before moving supply.",
   "Add real PancakeSwap liquidity only after tokenomics are public.",
   "Verify V1 source if the original source code is available.",
   "Keep V2 as audited backup, not immediate replacement."
@@ -232,7 +233,7 @@ function App() {
     <main className="app-shell">
       <header className="topbar">
         <a className="brand" href="https://github.com/Nova-coder0/nova-core" target="_blank" rel="noreferrer">
-          <span className="brand-mark">N</span>
+          <img className="brand-mark brand-logo" src="/nova-logo.png" alt="NOVA logo" />
           <span>
             <strong>NOVA Control Center</strong>
             <small>BNB Smart Chain V1 transparency</small>
