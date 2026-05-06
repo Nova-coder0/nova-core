@@ -36,6 +36,10 @@ BscScan profile updates normally require:
 - working social or documentation links,
 - neutral project wording without exaggerated price or performance claims.
 
+## Manual Account Step
+
+The profile update must be submitted through BscScan's official form from an account that can verify project ownership. Do not submit duplicate requests for the same contract.
+
 ## Current Blocker
 
 The V1 contract source is not publicly verified yet. If the original source code and compiler settings are available, source verification should be completed before submitting the profile update.
