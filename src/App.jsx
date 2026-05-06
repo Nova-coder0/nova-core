@@ -10,6 +10,7 @@ import {
   Github,
   LockKeyhole,
   Network,
+  PlusCircle,
   Rocket,
   Scale,
   RefreshCw,
@@ -22,6 +23,19 @@ const TOKEN_ADDRESS = "0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8";
 const OWNER_ADDRESS = "0x73B13124271Dd38f62b1DA3297BeA735CBCDC942";
 const PAIR_ADDRESS = "0x1eCc98A87EA3E28B8b8Bc72a388223db8A1444Bb";
 const RPC_URL = "https://bsc-dataseed.binance.org/";
+const LOGO_URL = "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png";
+const TOKENLIST_URL = "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova.tokenlist.json";
+const BSC_CHAIN = {
+  chainId: "0x38",
+  chainName: "BNB Smart Chain",
+  nativeCurrency: {
+    name: "BNB",
+    symbol: "BNB",
+    decimals: 18
+  },
+  rpcUrls: [RPC_URL],
+  blockExplorerUrls: ["https://bscscan.com"]
+};
 
 const ERC20_ABI = [
   "function name() view returns (string)",
@@ -128,6 +142,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [lastUpdated, setLastUpdated] = useState("Static baseline");
   const [error, setError] = useState("");
+  const [walletStatus, setWalletStatus] = useState("");
   const [liquidityInputs, setLiquidityInputs] = useState({
     novaAmount: "10000000",
     bnbAmount: "1",
@@ -229,6 +244,50 @@ function App() {
     }));
   }
 
+  async function addNovaToWallet() {
+    setWalletStatus("");
+
+    if (!window.ethereum?.request) {
+      setWalletStatus("MetaMask was not detected in this browser.");
+      return;
+    }
+
+    try {
+      try {
+        await window.ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: BSC_CHAIN.chainId }]
+        });
+      } catch (switchError) {
+        if (switchError.code !== 4902) {
+          throw switchError;
+        }
+
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [BSC_CHAIN]
+        });
+      }
+
+      const added = await window.ethereum.request({
+        method: "wallet_watchAsset",
+        params: {
+          type: "ERC20",
+          options: {
+            address: TOKEN_ADDRESS,
+            symbol: "NOVA",
+            decimals: 18,
+            image: LOGO_URL
+          }
+        }
+      });
+
+      setWalletStatus(added ? "NOVA import request sent to MetaMask." : "MetaMask did not add NOVA.");
+    } catch (walletError) {
+      setWalletStatus(walletError.message || "MetaMask import failed.");
+    }
+  }
+
   return (
     <main className="app-shell">
       <header className="topbar">
@@ -269,6 +328,27 @@ function App() {
           <button className="icon-button" type="button" onClick={refreshStats} disabled={loading} title="Refresh chain data">
             <RefreshCw size={18} className={loading ? "spinning" : ""} />
           </button>
+        </div>
+      </section>
+
+      <section className="discoverability-band" aria-label="NOVA wallet import">
+        <div>
+          <span className="eyebrow">Wallet visibility</span>
+          <h2>Add NOVA to MetaMask with the official logo URL.</h2>
+          <p>
+            This uses MetaMask's wallet asset request on BNB Smart Chain. MetaMask may still cache or ignore logos for
+            custom tokens, but this gives users the cleanest import path we can control.
+          </p>
+        </div>
+        <div className="wallet-actions">
+          <button className="primary-button" type="button" onClick={addNovaToWallet}>
+            <PlusCircle size={18} />
+            Add NOVA to MetaMask
+          </button>
+          <a className="secondary-button" href={TOKENLIST_URL} target="_blank" rel="noreferrer">
+            Tokenlist JSON <ArrowUpRight size={15} />
+          </a>
+          {walletStatus && <p className="wallet-status">{walletStatus}</p>}
         </div>
       </section>
 
