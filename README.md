@@ -48,6 +48,10 @@ Prepared NOVA files:
 
 The dashboard also includes a MetaMask import button using `wallet_watchAsset` with the official NOVA logo URL from the public website.
 
+Trust Wallet PR:
+
+- `https://github.com/trustwallet/assets/pull/36579`
+
 ## V2 Direction
 
 The current V1 token has trust issues: closed source, owner controls, centralized supply, and almost no liquidity. V2 is designed as a simpler fixed-supply token with no owner, no mint, no pause, no blacklist, and no tax controls.
@@ -99,6 +103,7 @@ npm.cmd run build
 - [Liquidity plan](docs/LIQUIDITY_PLAN.md)
 - [No-BNB growth plan](docs/NO_BNB_GROWTH_PLAN.md)
 - [Website deployment](docs/WEBSITE_DEPLOYMENT.md)
+- [External listing status](docs/EXTERNAL_LISTING_STATUS.md)
 - [Treasury policy](docs/TREASURY_POLICY.md)
 - [BNB Chain grant proposal draft](docs/BNB_CHAIN_GRANT_PROPOSAL.md)
 - [BscScan profile submission package](docs/BSC_SCAN_PROFILE_SUBMISSION.md)
