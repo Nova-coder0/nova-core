@@ -1,0 +1,53 @@
+{
+  "token": "0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8",
+  "symbol": "NOVA",
+  "decimals": 18,
+  "totalSupply": "1000000000.0",
+  "owner": "0x73B13124271Dd38f62b1DA3297BeA735CBCDC942",
+  "generatedAt": "2026-05-06T18:38:11.767Z",
+  "mode": "dry-run",
+  "transfers": [
+    {
+      "category": "Liquidity",
+      "share": "20%",
+      "amount": "200000000.0 NOVA",
+      "to": "UNSET:NOVA_LIQUIDITY_WALLET",
+      "env": "NOVA_LIQUIDITY_WALLET"
+    },
+    {
+      "category": "Ecosystem rewards",
+      "share": "30%",
+      "amount": "300000000.0 NOVA",
+      "to": "UNSET:NOVA_ECOSYSTEM_REWARDS_WALLET",
+      "env": "NOVA_ECOSYSTEM_REWARDS_WALLET"
+    },
+    {
+      "category": "Treasury / operations",
+      "share": "20%",
+      "amount": "200000000.0 NOVA",
+      "to": "UNSET:NOVA_TREASURY_OPERATIONS_WALLET",
+      "env": "NOVA_TREASURY_OPERATIONS_WALLET"
+    },
+    {
+      "category": "Development",
+      "share": "15%",
+      "amount": "150000000.0 NOVA",
+      "to": "UNSET:NOVA_DEVELOPMENT_WALLET",
+      "env": "NOVA_DEVELOPMENT_WALLET"
+    },
+    {
+      "category": "Community grants",
+      "share": "10%",
+      "amount": "100000000.0 NOVA",
+      "to": "UNSET:NOVA_COMMUNITY_GRANTS_WALLET",
+      "env": "NOVA_COMMUNITY_GRANTS_WALLET"
+    },
+    {
+      "category": "Reserve",
+      "share": "5%",
+      "amount": "50000000.0 NOVA",
+      "to": "UNSET:NOVA_RESERVE_WALLET",
+      "env": "NOVA_RESERVE_WALLET"
+    }
+  ]
+}
