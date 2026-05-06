@@ -10,6 +10,7 @@ import {
   Github,
   LockKeyhole,
   Network,
+  Rocket,
   Scale,
   RefreshCw,
   ShieldCheck,
@@ -74,6 +75,25 @@ const actions = [
   "Add real PancakeSwap liquidity only after tokenomics are public.",
   "Verify V1 source if the original source code is available.",
   "Keep V2 as audited backup, not immediate replacement."
+];
+
+const noBnbRoutes = [
+  {
+    title: "Utility first",
+    body: "Build a useful NOVA tool before adding serious liquidity: dashboard, bot, API credits, or holder utilities."
+  },
+  {
+    title: "Grant path",
+    body: "Prepare a BNB Chain grant application around open-source monitoring, token transparency, and community tooling."
+  },
+  {
+    title: "Community liquidity",
+    body: "Let early supporters add small liquidity after the tokenomics and risks are public. No false promises."
+  },
+  {
+    title: "Partner liquidity",
+    body: "Offer transparent NOVA allocation to a partner who contributes BNB, with vesting and public terms."
+  }
 ];
 
 const totalSupplyNumber = 1_000_000_000;
@@ -373,6 +393,21 @@ function App() {
           This is an AMM model for planning, not a promise of price movement. Real trades include fees, slippage,
           arbitrage, and liquidity risk. Use it to avoid creating a pool that is too thin or misleading.
         </p>
+      </section>
+
+      <section className="growth-section">
+        <div className="section-heading">
+          <Rocket size={21} />
+          <h2>No-BNB Growth Path</h2>
+        </div>
+        <div className="growth-grid">
+          {noBnbRoutes.map((route) => (
+            <article className="growth-card" key={route.title}>
+              <strong>{route.title}</strong>
+              <p>{route.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="actions-section" id="actions">
