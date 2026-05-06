@@ -5,6 +5,7 @@ NOVA Core contains the technical foundation for NovaToken:
 - V1 due diligence.
 - V1 transparency dashboard.
 - Liquidity planning calculator.
+- No-BNB growth plan.
 - V2 fixed-supply contract.
 - Tokenomics draft.
 - Security policy.
@@ -70,6 +71,7 @@ npm.cmd run build
 - [Due diligence](docs/NOVA_DUE_DILIGENCE.md)
 - [V1 stabilization plan](docs/V1_STABILIZATION_PLAN.md)
 - [Liquidity plan](docs/LIQUIDITY_PLAN.md)
+- [No-BNB growth plan](docs/NO_BNB_GROWTH_PLAN.md)
 - [V2 architecture](docs/NOVA_V2_ARCHITECTURE.md)
 - [Tokenomics draft](docs/TOKENOMICS_DRAFT.md)
 - [Security policy](docs/SECURITY_POLICY.md)
