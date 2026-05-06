@@ -11,6 +11,8 @@ NOVA Core contains the technical foundation for NovaToken:
 - Security policy.
 - Roadmap.
 - Trust Wallet asset metadata.
+- Brand logo assets.
+- Treasury and grant-readiness documents.
 
 ## Current Token
 
@@ -21,6 +23,17 @@ NOVA Core contains the technical foundation for NovaToken:
 ## Active Direction
 
 NOVA V1 is the active deployed token. The first strategy is to strengthen V1 with transparency, metadata, monitoring, tokenomics, and utility before considering a V2 migration.
+
+## Brand And Wallet Listing
+
+The token contract does not store a logo. Wallets and explorers usually read token images from off-chain metadata sources such as Trust Wallet Assets, token lists, or explorer profile submissions.
+
+Prepared NOVA files:
+
+- `assets/brand/nova-logo.svg`
+- `public/nova-logo.png`
+- `blockchains/smartchain/assets/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8/logo.png`
+- `blockchains/smartchain/assets/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8/info.json`
 
 ## V2 Direction
 
@@ -72,6 +85,8 @@ npm.cmd run build
 - [V1 stabilization plan](docs/V1_STABILIZATION_PLAN.md)
 - [Liquidity plan](docs/LIQUIDITY_PLAN.md)
 - [No-BNB growth plan](docs/NO_BNB_GROWTH_PLAN.md)
+- [Treasury policy](docs/TREASURY_POLICY.md)
+- [BNB Chain grant proposal draft](docs/BNB_CHAIN_GRANT_PROPOSAL.md)
 - [V2 architecture](docs/NOVA_V2_ARCHITECTURE.md)
 - [Tokenomics draft](docs/TOKENOMICS_DRAFT.md)
 - [Security policy](docs/SECURITY_POLICY.md)
