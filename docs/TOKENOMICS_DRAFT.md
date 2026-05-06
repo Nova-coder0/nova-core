@@ -1,6 +1,6 @@
-# NOVA Tokenomics Draft
+# NOVA Tokenomics
 
-This is a draft. It should be finalized before any public V2 launch.
+This is the active NOVA V1 allocation model. Execution is handled by `scripts/allocate-v1.js`.
 
 ## Supply
 
@@ -10,7 +10,7 @@ This is a draft. It should be finalized before any public V2 launch.
 - Decimals: 18
 - Chain: BNB Smart Chain
 
-## Suggested Allocation
+## Allocation
 
 | Category | Share | Amount |
 | --- | ---: | ---: |
@@ -30,7 +30,16 @@ This is a draft. It should be finalized before any public V2 launch.
 - Large transfers should be announced or explained.
 - No hidden supply, no private mint, no admin tax.
 
-## Launch Warnings
+## Execution
 
-The current V1 contract has almost all supply in one owner wallet and almost no liquidity. Public launch should wait until the V2 supply plan, treasury policy, and liquidity plan are published.
+Use the allocation execution script:
 
+```powershell
+npm.cmd run allocate:v1
+```
+
+The script creates `generated/nova-v1-allocation-plan.json` and refuses to execute unless the signer is the current NOVA owner and every category wallet is set.
+
+## Current Warning
+
+The current V1 contract has almost all supply in one owner wallet and almost no liquidity. Public promotion should wait until allocation transfers, liquidity policy, and owner/source-code risk are resolved.
