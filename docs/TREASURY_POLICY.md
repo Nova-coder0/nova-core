@@ -59,3 +59,12 @@ Before adding liquidity, publish:
 4. LP lock or treasury-managed LP policy,
 5. transaction hash after execution.
 
+## Allocation Execution
+
+The current tokenomics allocation is prepared as an executable script:
+
+```powershell
+npm.cmd run allocate:v1
+```
+
+Execution is intentionally blocked unless the signer is the current NOVA owner and all category wallets are configured. This prevents accidental transfers from the wrong wallet or to placeholder addresses.
