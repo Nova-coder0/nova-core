@@ -19,6 +19,15 @@ NOVA Core contains the technical foundation for NovaToken:
 - Chain: BNB Smart Chain
 - V1 contract: `0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8`
 - Symbol: `NOVA`
+- Website: `https://nova-coder0.github.io/nova-core/`
+
+## Public Website
+
+The NOVA dashboard is configured for GitHub Pages, so it can run as a public HTTPS website without buying a domain.
+
+- Site URL: `https://nova-coder0.github.io/nova-core/`
+- Deploy workflow: `.github/workflows/pages.yml`
+- Production base path: `/nova-core/`
 
 ## Active Direction
 
@@ -37,7 +46,7 @@ Prepared NOVA files:
 - `blockchains/smartchain/assets/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8/logo.png`
 - `blockchains/smartchain/assets/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8/info.json`
 
-The dashboard also includes a MetaMask import button using `wallet_watchAsset` with the official NOVA logo URL.
+The dashboard also includes a MetaMask import button using `wallet_watchAsset` with the official NOVA logo URL from the public website.
 
 ## V2 Direction
 
@@ -89,6 +98,7 @@ npm.cmd run build
 - [V1 stabilization plan](docs/V1_STABILIZATION_PLAN.md)
 - [Liquidity plan](docs/LIQUIDITY_PLAN.md)
 - [No-BNB growth plan](docs/NO_BNB_GROWTH_PLAN.md)
+- [Website deployment](docs/WEBSITE_DEPLOYMENT.md)
 - [Treasury policy](docs/TREASURY_POLICY.md)
 - [BNB Chain grant proposal draft](docs/BNB_CHAIN_GRANT_PROPOSAL.md)
 - [BscScan profile submission package](docs/BSC_SCAN_PROFILE_SUBMISSION.md)
