@@ -1,0 +1,40 @@
+{
+  "name": "NOVA Token List",
+  "timestamp": "2026-05-06T00:00:00.000Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {
+    "transparency": {
+      "name": "Transparency",
+      "description": "Tokens with public documentation and monitoring assets."
+    }
+  },
+  "logoURI": "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png",
+  "keywords": [
+    "nova",
+    "bnb",
+    "bep20",
+    "transparency"
+  ],
+  "tokens": [
+    {
+      "chainId": 56,
+      "address": "0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8",
+      "name": "NovaToken",
+      "symbol": "NOVA",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/Nova-coder0/nova-core/main/public/nova-logo.png",
+      "tags": [
+        "transparency"
+      ],
+      "extensions": {
+        "website": "https://github.com/Nova-coder0/nova-core",
+        "explorer": "https://bscscan.com/token/0x20f8CA292a27c1d5F41A43599268bb85a12Ee3A8",
+        "pair": "https://pancakeswap.finance/info/v2/pairs/0x1eCc98A87EA3E28B8b8Bc72a388223db8A1444Bb"
+      }
+    }
+  ]
+}
